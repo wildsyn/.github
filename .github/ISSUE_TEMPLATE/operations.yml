@@ -1,0 +1,44 @@
+name: 部署 / 运维
+description: 部署、迁移、监控、回滚或基础设施任务
+title: "[Operations] "
+labels:
+  - "type:operations"
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: 目标与影响范围
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境与服务
+      description: 涉及哪些主机、容器、数据库、域名或服务？
+    validations:
+      required: true
+  - type: textarea
+    id: procedure
+    attributes:
+      label: 执行方案
+      description: 使用哪个标准脚本或操作步骤？
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: 验证方案
+      description: 如何验证代码、容器、数据库、公共路由和浏览器资源？
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: 回滚方案
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 执行证据
+      description: 部署日志、健康检查、版本与遗留问题。

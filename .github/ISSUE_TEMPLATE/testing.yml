@@ -1,0 +1,37 @@
+name: 测试 / 回归
+description: 主流程验证、专项测试或发布回归
+title: "[Testing] "
+labels:
+  - "type:testing"
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: 测试目标
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 测试环境与前置条件
+    validations:
+      required: true
+  - type: textarea
+    id: cases
+    attributes:
+      label: 测试范围与用例
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 通过标准
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 验证证据
+      description: 测试结果、截图、录屏、日志或关联 Bug。
+    validations:
+      required: true

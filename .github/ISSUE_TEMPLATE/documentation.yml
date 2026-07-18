@@ -1,0 +1,32 @@
+name: 文档
+description: 新增或更新用户、开发、接口或运维文档
+title: "[Docs] "
+labels:
+  - "type:documentation"
+body:
+  - type: textarea
+    id: audience
+    attributes:
+      label: 目标读者与目的
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: 文档产出
+      description: 需要新增或更新哪些文档？
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: 事实来源
+      description: 需要依据哪些代码、接口、配置或真实流程？
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+    validations:
+      required: true

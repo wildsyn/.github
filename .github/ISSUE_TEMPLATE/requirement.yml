@@ -1,0 +1,39 @@
+name: 需求 / 设计
+description: 提出需要澄清、设计或拆分的产品需求
+title: "[Requirement] "
+labels:
+  - "type:requirement"
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目标
+      description: 为什么要做，解决谁的什么问题？
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: 产出
+      description: 最终需要交付什么？
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 范围与非范围
+      description: 涉及哪些模块，明确不处理什么？
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      description: 满足哪些条件才算完成？
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 依赖与补充信息
+      description: 依赖哪些任务、人员、环境或外部条件？

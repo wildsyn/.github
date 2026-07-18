@@ -1,0 +1,49 @@
+name: Bug
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels:
+  - "type:bug"
+body:
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影响
+      description: 谁受到影响，是否阻断主流程？
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 写出可以稳定复现问题的最短步骤。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境
+      description: 浏览器、版本、分支、测试/生产环境等。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据
+      description: 截图、录屏、日志或请求信息；不要粘贴密钥和用户隐私数据。
+  - type: textarea
+    id: regression
+    attributes:
+      label: 回归验证
+      description: 修复后需要验证哪些相关流程？
