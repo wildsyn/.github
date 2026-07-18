@@ -1,39 +1,70 @@
-name: 需求 / 设计
-description: 提出需要澄清、设计或拆分的产品需求
+name: Feature Brief / 需求
+description: 由项目负责人提出用户问题、结果、范围与验收，确认后再由 AI 拆卡
 title: "[Requirement] "
 labels:
   - "type:requirement"
+  - "needs-discussion"
 body:
-  - type: textarea
-    id: goal
+  - type: markdown
     attributes:
-      label: 目标
-      description: 为什么要做，解决谁的什么问题？
+      value: |
+        Feature Brief 是父需求，不直接领取。信息确认并拆成子任务后，再把可执行卡片移入 Ready。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 用户与问题
+      description: 谁在什么场景遇到什么问题？不要先写解决方案。
+      placeholder: 内容工作室在……时，因为……无法……
     validations:
       required: true
   - type: textarea
-    id: deliverable
+    id: why_now
     attributes:
-      label: 产出
-      description: 最终需要交付什么？
+      label: 为什么现在做
+      description: 对应哪个路线图、里程碑、用户反馈或业务目标？
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 目标结果与成功指标
+      description: 用户最终获得什么结果？用什么可观察指标判断成功？
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
-      label: 范围与非范围
-      description: 涉及哪些模块，明确不处理什么？
+      label: 本次范围
+      description: 必须包含的用户流程和产品能力。
+    validations:
+      required: true
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: 明确不做
+      description: 为防止需求膨胀，本次不处理什么？
     validations:
       required: true
   - type: textarea
     id: acceptance
     attributes:
-      label: 验收标准
-      description: 满足哪些条件才算完成？
+      label: 产品验收
+      description: 负责人最终如何演示、操作或观察，才能确认需求完成？
     validations:
       required: true
   - type: textarea
     id: dependencies
     attributes:
-      label: 依赖与补充信息
-      description: 依赖哪些任务、人员、环境或外部条件？
+      label: 依赖、风险与约束
+      description: 前置任务、接口、人员、环境、时间、安全或数据约束。
+  - type: checkboxes
+    id: ready_for_split
+    attributes:
+      label: 拆卡确认
+      options:
+        - label: 我已明确目标用户和问题
+          required: true
+        - label: 我已写明不做项和产品验收方式
+          required: true
+        - label: 我理解该 Issue 确认后仍需拆成可领取子任务
+          required: true
