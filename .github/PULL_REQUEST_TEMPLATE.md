@@ -2,6 +2,14 @@
 
 Closes #
 
+## 责任与委派
+
+- Human Owner：
+- Agent Delegate：
+- Size：S / M
+- Risk：Low / Medium / High
+- Verification：Unit / Integration / Staging / Production
+
 ## 目标
 
 说明这次改动为哪条验收标准服务。
@@ -26,6 +34,12 @@ UI、API、日志或真实服务证据：
 
 -
 
+## Agent 自查与独立预检
+
+- 执行 Agent 自查结果：
+- 独立 Agent Reviewer（M 及以上必填）：
+- 发现并修复的问题：
+
 ## 风险与回滚
 
 说明兼容性、数据、安全、部署风险和回滚方式；不适用时写“无”。
@@ -39,6 +53,8 @@ UI、API、日志或真实服务证据：
 - [ ] PR 只解决一个可验收任务，没有混入无关修改
 - [ ] 已逐条核对 Issue 验收标准
 - [ ] 已运行适用的 lint / test / build
+- [ ] 执行 Agent 已检查需求偏差、无关改动和失败路径
+- [ ] M 及以上任务已由第二个 Agent 独立预检
 - [ ] 已提供必要的截图、录屏、API 或日志证据
 - [ ] 已确认未提交密钥、用户数据或环境文件
 - [ ] 已说明数据、安全、兼容性和部署影响
@@ -48,4 +64,5 @@ UI、API、日志或真实服务证据：
 
 - [ ] 需求边界与父 Issue 一致
 - [ ] 关键逻辑、失败路径和权限边界合理
+- [ ] Agent Review 结论有证据且未替代必要的人工风险判断
 - [ ] 证据足以支持进入 Testing 或 Done
