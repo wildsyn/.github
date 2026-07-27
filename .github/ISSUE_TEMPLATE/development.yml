@@ -1,5 +1,5 @@
 name: 可领取开发任务
-description: 0.5–2 天、一个仓库、一个 Owner、可独立验收的实现任务
+description: 一个结果边界、一个 Human Owner、可审查验证回滚的 AI 原生任务
 title: "[Development] "
 labels:
   - "type:development"
@@ -52,6 +52,27 @@ body:
     attributes:
       label: 依赖与阻塞
       description: 依赖哪些 Issue、PR、服务、接口、人员或环境？
+  - type: input
+    id: human_owner
+    attributes:
+      label: Human Owner
+      description: 对范围、证据和交付闭环负责的 GitHub 用户名；创建后请同步设置 Assignee。
+      placeholder: "@username"
+    validations:
+      required: true
+  - type: dropdown
+    id: agent_delegate
+    attributes:
+      label: Agent Delegate
+      description: 主要执行 Agent；这不改变 Human Owner 的最终责任。
+      options:
+        - Codex
+        - Claude Code
+        - GitHub Copilot
+        - Multiple agents
+        - None
+    validations:
+      required: true
   - type: textarea
     id: risks
     attributes:
@@ -60,14 +81,37 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: estimate
+    id: size
     attributes:
-      label: 预计规模
-      description: 超过 2 天应继续拆分。
+      label: Size
+      description: 按审查、验证和回滚边界判断，不按 AI 编码时间判断。
       options:
-        - 0.5 天
-        - 1 天
-        - 2 天
+        - S — 局部低风险、快速验证
+        - M — 完整结果包、需要集成验证
+        - L — 高风险或跨领域，必须先拆分
+        - XL — 只能作为 Feature Brief
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: dropdown
+    id: verification_level
+    attributes:
+      label: 最高验证级别
+      description: 本任务进入 Done 前必须达到的最高环境。
+      options:
+        - Unit / Static
+        - Integration
+        - Staging
+        - Production
     validations:
       required: true
   - type: checkboxes
@@ -76,6 +120,8 @@ body:
       label: Ready 检查
       options:
         - label: 该任务只有一个主要交付物和一个 Owner
+          required: true
+        - label: Reviewer 可以理解影响面，失败时可以独立停止或回滚
           required: true
         - label: 验收方式不依赖领取者猜测需求
           required: true
